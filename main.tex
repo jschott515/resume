@@ -1,0 +1,43 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[left=0.5in, right=0.5in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage[none]{hyphenat}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% Font
+\usepackage{charter}
+
+% Format text
+\setlength{\parindent}{0pt}
+\sloppy
+\raggedright
+\pagestyle{empty}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries}
+  {}{0em}{}
+  [\vspace{6pt}\titlerule]
+
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Bullet style
+\setlist[itemize]{
+  nosep,
+  leftmargin=*,
+  topsep=0pt,
+  before=\vspace{2pt},
+  after=\vspace{6pt}
+}
+
+\begin{document}
+
+\input{content/header}
+\input{content/experience}
+\input{content/education}
+\input{content/projects}
+\input{content/awards}
+
+\end{document}
