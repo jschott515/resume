@@ -1,25 +1,29 @@
 TEX=pdflatex
 BUILD=build
+SITE=site
 
 SRC=main.tex
-OUT=$(BUILD)/main.pdf
 CONTENT=$(wildcard content/*.tex)
 
-RELEASE=$(BUILD)/SchottJordanResume$(shell date +%Y-%m).pdf
+OUT=$(BUILD)/main.pdf
+RESUME=$(BUILD)/SchottJordanResume$(shell date +%Y-%m).pdf
+PUBLISH=$(SITE)/resume-latest.pdf
 
-all: $(OUT)
+all: $(RESUME)
 
 $(BUILD):
 	mkdir -p $(BUILD)
 
-$(OUT): $(SRC) $(CONTENT) | $(BUILD)
+$(RESUME): $(SRC) $(CONTENT) | $(BUILD)
 	$(TEX) -output-directory=$(BUILD) $(SRC)
 	$(TEX) -output-directory=$(BUILD) $(SRC)
+	mv $(OUT) $(RESUME)
 
 clean:
 	rm -rf $(BUILD)
+	rm -f $(PUBLISH)
 
-publish: $(OUT)
-	cp $(OUT) $(RELEASE)
+publish: $(RESUME)
+	cp $(RESUME) $(PUBLISH)
 
 .PHONY: all clean publish
