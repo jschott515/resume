@@ -1,9 +1,16 @@
 \section{Projects}
 
+\textbf{CS-ECG - Compressed Sensing for Multi-Lead Electrocardiograms} \\
+
+\begin{itemize}
+    \item Adapted Compressed Sensing techniques for 12-Lead ECG data to apply up to 20:1 compression with negligable measurement overhead.
+    \item Analyzed FPGA and software implementations to minimize power consumption of data acquisition on embedded devices.
+    \item Investigated sparse optimization algorithms {\small (Group LASSO, M-FOCUSS)} to recover the source with {\small\(>\)}5\% PRD per channel.
+\end{itemize}
+
 \textbf{PyCIE - Cross-Platform Python XDMA Driver} \\
 
 \begin{itemize}
     \item Leverged the Xilinx XDMA Windows and Linux kernel drivers to create a portable Python driver for memory access to FPGAs via PCIE.
     \item Created a platform-independent interface for DMA and bypass channel reads/writes using device driver files.
-    \item Implemented Windows support with ctypes wrappers for the Window's file API; Linux support with OS and MMap.
 \end{itemize}
