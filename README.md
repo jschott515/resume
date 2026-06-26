@@ -5,29 +5,17 @@ A simple ATS-optimized resume written with LaTeX
 ```
 resume/
 │
-├── main.tex (top-level resume LaTeX file)
-├── Makefile
-|
-├── content/
-│   └── (LaTeX resume content)
+├── resume/
+|   ├── main.tex (top-level resume LaTeX file)
+|   └── content/
+|       └── (LaTeX resume content)
 │
 ├── site/
 │   └── (HTML for resume webpage)
 │
 └── .github/
     └── workflows/
-        └── (CI/CD pipelines)
-```
-
-### Building
-Compile the resume as PDF:
-```
-make
-```
-
-(Optional) publish the resume webpage:
-```
-make publish
+        └── (CI/CD pipeline)
 ```
 
 ### Webpage

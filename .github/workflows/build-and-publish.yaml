@@ -35,13 +35,13 @@ jobs:
       - name: Build PDF
         run: |
           make clean
-          make publish
+          make
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: resume-pdf
-          path: build/*.pdf
+          path: resume/build/*.pdf
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
