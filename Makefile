@@ -1,29 +1,12 @@
-TEX=pdflatex
-BUILD=build
-SITE=site
+LATEST=site/resume-latest.pdf
 
-SRC=main.tex
-CONTENT=$(wildcard content/*.tex)
+all: $(LATEST)
 
-OUT=$(BUILD)/main.pdf
-RESUME=$(BUILD)/SchottJordanResume$(shell date +%Y-%m).pdf
-PUBLISH=$(SITE)/resume-latest.pdf
-
-all: $(RESUME)
-
-$(BUILD):
-	mkdir -p $(BUILD)
-
-$(RESUME): $(SRC) $(CONTENT) | $(BUILD)
-	$(TEX) -output-directory=$(BUILD) $(SRC)
-	$(TEX) -output-directory=$(BUILD) $(SRC)
-	mv $(OUT) $(RESUME)
+$(LATEST):
+	$(MAKE) -C resume publish PUBLISH=$(abspath $@)
 
 clean:
-	rm -rf $(BUILD)
-	rm -f $(PUBLISH)
+	$(MAKE) -C resume clean
+	rm -f $(LATEST)
 
-publish: $(RESUME)
-	cp $(RESUME) $(PUBLISH)
-
-.PHONY: all clean publish
+.PHONY: all clean
